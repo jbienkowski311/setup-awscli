@@ -27,7 +27,7 @@ runs:
     - name: download zip.sig
       shell: bash
       run: |
-        curl -o awscliv2.zip.sig https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip.sig
+        curl -o awscliv2.zip.sig https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.22.35.zip.sig
 
     - name: setup cache
       id: cache-sig
@@ -40,7 +40,7 @@ runs:
       if: ${{ steps.cache-sig.outputs.cache-hit != 'true' }}
       shell: bash
       run: |
-        curl -o awscliv2.zip https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
+        curl -o awscliv2.zip https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.22.35.zip
 
     - name: gpg import
       if: ${{ inputs.gpg-verify == 'true' }}
